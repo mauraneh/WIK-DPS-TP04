@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pod-replicaset-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: shinny.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: pod-replicaset
+                port:
+                  number: 8080

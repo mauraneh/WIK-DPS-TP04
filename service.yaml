@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pod-replicaset
+spec:
+  selector:
+    app: pod-replicaset
+  ports:
+    - port: 8080
+      targetPort: 8080

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: pod-replicaset
+  labels:
+    app: pod-replicaset
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: pod-replicaset
+  template:
+    metadata:
+      labels:
+        app: pod-replicaset
+    spec:
+      containers:
+        - name: pod-replicaset
+          image: registry.cluster.wik.cloud/public/echo
+          ports:
+            - containerPort: 8080
